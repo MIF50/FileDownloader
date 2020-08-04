@@ -67,11 +67,6 @@ class NetworkHelper constructor(private val context: Context) {
                 return NetworkError(code = 0,message = throwable.message ?: "Something wrong happened, please retry again...")
             }
 
-//            val error = GsonBuilder()
-//                .excludeFieldsWithoutExposeAnnotation()
-//                .create()
-//                .fromJson(throwable.response().errorBody()?.string(), NetworkError::class.java)
-
 
             val error = fromJson(throwable.response().errorBody()?.string())
             Logger.d(TAG,"error = ${error.message}")

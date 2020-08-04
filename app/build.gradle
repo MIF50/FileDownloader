@@ -86,8 +86,40 @@ dependencies {
 
 
 
+    // UI Testing
+
+    def junit_version = '4.13'
+    def espresso_version = '3.2.0'
+    def mockito_version = '2.28.2'
+    def core_testing_version = '1.1.1'
+    def test_runner_version = '1.2.0'
+    def test_ext_runner_version = '1.1.1'
+    def hamcrest_version = '2.2'
+
+
+    // Local Unit tests
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation 'org.mockito:mockito-inline:2.21.0'
+
+    implementation 'org.mockito:mockito-android:3.3.3'
+
+    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
+    testImplementation "android.arch.core:core-testing:$core_testing_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+
+
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
+    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
 
 }

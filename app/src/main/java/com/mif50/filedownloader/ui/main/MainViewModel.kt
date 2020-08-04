@@ -51,9 +51,8 @@ class MainViewModel(
     }
 
     fun downloadFile(dirPath: String) {
-        Logger.d(TAG, dirPath)
         if (checkInternetConnectionWithMessage()) {
-            if (!isFileExists("$dirPath/$fileName")) {
+            if (isFileNotExists("$dirPath/$fileName")) {
                 loadingLiveData.postValue(Event(true))
                 downloadId = PRDownloader.download(url, dirPath, fileName)
                     .build()
@@ -83,6 +82,8 @@ class MainViewModel(
         }
 
     }
+
+    fun isFileNotExists(path:String) = !isFileExists(path)
 
     fun pauseDownload() {
         PRDownloader.pause(downloadId)
