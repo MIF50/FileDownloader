@@ -118,9 +118,11 @@ class MainViewModelTest {
             .`when`(networkHelper)
             .isNetworkConnected()
 
-        doReturn(false)
-            .`when`(SUT)
-            .isFileNotExists("$FAKE_DIR_PATH/$FAKE_FILE_NAME")
+//        doReturn(false)
+//            .`when`(SUT)
+//            .isFileNotExists("$FAKE_DIR_PATH/$FAKE_FILE_NAME")
+
+
         // Act
         SUT.downloadFile(FAKE_DIR_PATH)
         // Assert
